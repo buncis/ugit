@@ -4,11 +4,24 @@
   <strong>Name:</strong>
   <%= @kelas.name %>
 </p>
+<% if @users %>
+  <table>
+    <thead>
+      <tr>
+        <th>email</th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
 
-<p>
-  <strong>User:</strong>
-  <%= @kelas.user %>
-</p>
+    <tbody>
+      <% @users.each do |user| %>
+        <tr>
+          <td><%= user.email %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% end %>
 
 <%= link_to 'Edit', edit_kelas_path(@kelas) %> |
 <%= link_to 'Back', kelases_path %>

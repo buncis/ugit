@@ -18,7 +18,7 @@ class KelasesControllerTest < ActionController::TestCase
 
   test "should create kelas" do
     assert_difference('Kelas.count') do
-      post :create, kelas: { name: @kelas.name, user_id: @kelas.user_id }
+      post :create, kelas: { name: @kelas.name }
     end
 
     assert_redirected_to kelas_path(assigns(:kelas))
@@ -35,7 +35,7 @@ class KelasesControllerTest < ActionController::TestCase
   end
 
   test "should update kelas" do
-    patch :update, id: @kelas, kelas: { name: @kelas.name, user_id: @kelas.user_id }
+    patch :update, id: @kelas, kelas: { name: @kelas.name }
     assert_redirected_to kelas_path(assigns(:kelas))
   end
 

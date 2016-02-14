@@ -6,7 +6,6 @@
   <thead>
     <tr>
       <th>Name</th>
-      <th>User</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -15,7 +14,6 @@
     <% @kelases.each do |kelas| %>
       <tr>
         <td><%= kelas.name %></td>
-        <td><%= kelas.user %></td>
         <td><%= link_to 'Show', kelas %></td>
         <td><%= link_to 'Edit', edit_kelas_path(kelas) %></td>
         <td><%= link_to 'Destroy', kelas, method: :delete, data: { confirm: 'Are you sure?' } %></td>

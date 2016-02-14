@@ -10,6 +10,7 @@ class KelasesController < ApplicationController
   # GET /kelases/1
   # GET /kelases/1.json
   def show
+    @users = @kelas.users
   end
 
   # GET /kelases/new
@@ -69,6 +70,6 @@ class KelasesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def kelas_params
-      params.require(:kelas).permit(:name, :user_id)
+      params.require(:kelas).permit(:name)
     end
 end
