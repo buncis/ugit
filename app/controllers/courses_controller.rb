@@ -16,7 +16,7 @@ class CoursesController < ApplicationController
   def show
     @teachers = @course.teachers
     @kelases = @course.kelases
-    @projects = @course.projects
+    #@projects = @course.projects
   end
 
   # GET /courses/new

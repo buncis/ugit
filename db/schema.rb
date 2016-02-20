@@ -11,27 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160215170518) do
+ActiveRecord::Schema.define(version: 20160220114801) do
 
   create_table "course_kelases", force: :cascade do |t|
     t.integer  "course_id"
     t.integer  "kelas_id"
+    t.integer  "teacher_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
+  add_index "course_kelases", ["course_id", "kelas_id"], name: "index_course_kelases_on_course_id_and_kelas_id", unique: true
   add_index "course_kelases", ["course_id"], name: "index_course_kelases_on_course_id"
   add_index "course_kelases", ["kelas_id"], name: "index_course_kelases_on_kelas_id"
-
-  create_table "course_teachers", force: :cascade do |t|
-    t.integer  "course_id"
-    t.integer  "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  add_index "course_teachers", ["course_id"], name: "index_course_teachers_on_course_id"
-  add_index "course_teachers", ["user_id"], name: "index_course_teachers_on_user_id"
+  add_index "course_kelases", ["teacher_id"], name: "index_course_kelases_on_teacher_id"
 
   create_table "courses", force: :cascade do |t|
     t.string   "name"
@@ -48,12 +41,10 @@ ActiveRecord::Schema.define(version: 20160215170518) do
   create_table "projects", force: :cascade do |t|
     t.string   "name"
     t.integer  "user_id"
-    t.integer  "course_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  add_index "projects", ["course_id"], name: "index_projects_on_course_id"
   add_index "projects", ["user_id"], name: "index_projects_on_user_id"
 
   create_table "users", force: :cascade do |t|

@@ -6,21 +6,21 @@ p
   = @course.name
   br
   = render 'layouts/teachers_toolbar'
-- if @projects.any?
-  table.table
-    thead
-      tr
-        th
-          | Projects
-        th
-          | Username
-    tbody
-      - @projects.each do |project|
-        tr
-          td
-            = link_to project.name, project
-          td
-            = link_to project.user.email, '#'
+/ - if @projects.any?
+/   table.table
+/     thead
+/       tr
+/         th
+/           | Projects
+/         th
+/           | Username
+/     tbody
+/       - @projects.each do |project|
+/         tr
+/           td
+/             = link_to project.name, project
+/           td
+/             = link_to project.user.email, '#'
 - if @teachers.any?
   table.table
     thead

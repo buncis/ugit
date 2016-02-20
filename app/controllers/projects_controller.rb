@@ -1,6 +1,5 @@
 class ProjectsController < ApplicationController
   before_action :set_project, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!, only: [:create, :new]
 
   # GET /projects
   # GET /projects.json
@@ -15,7 +14,7 @@ class ProjectsController < ApplicationController
 
   # GET /projects/new
   def new
-    @project = current_user.projects.build
+    @project = Project.new
   end
 
   # GET /projects/1/edit
@@ -25,7 +24,7 @@ class ProjectsController < ApplicationController
   # POST /projects
   # POST /projects.json
   def create
-    @project = current_user.projects.build(project_params)
+    @project = Project.new(project_params)
 
     respond_to do |format|
       if @project.save
@@ -70,6 +69,6 @@ class ProjectsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def project_params
-      params.require(:project).permit(:name, :user_id, :course_id)
+      params.require(:project).permit(:name, :user_id)
     end
 end
