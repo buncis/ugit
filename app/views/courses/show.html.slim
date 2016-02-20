@@ -1,0 +1,50 @@
+p#notice
+  = notice
+p
+  strong
+    | Name:
+  = @course.name
+  br
+  = render 'layouts/teachers_toolbar'
+- if @projects.any?
+  table.table
+    thead
+      tr
+        th
+          | Projects
+        th
+          | Username
+    tbody
+      - @projects.each do |project|
+        tr
+          td
+            = link_to project.name, project
+          td
+            = link_to project.user.email, '#'
+- if @teachers.any?
+  table.table
+    thead
+      tr
+        th
+          | Teacher
+        th[colspan="3"]
+    tbody
+      - @teachers.each do |teacher|
+        tr
+          td
+            = teacher.email
+- if @kelases.any?
+  table.table
+    thead
+      tr
+        th
+          | Kelas
+        th[colspan="3"]
+    tbody
+      - @kelases.each do |kelas|
+        tr
+          td
+            = link_to kelas.name, kelas
+= link_to 'Edit', edit_course_path(@course)
+
+= link_to 'Back', courses_path

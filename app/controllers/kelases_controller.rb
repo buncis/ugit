@@ -10,7 +10,7 @@ class KelasesController < ApplicationController
   # GET /kelases/1
   # GET /kelases/1.json
   def show
-    @users = @kelas.users
+    @users = @kelas.students
   end
 
   # GET /kelases/new

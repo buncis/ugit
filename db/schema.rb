@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160215055420) do
+ActiveRecord::Schema.define(version: 20160215170518) do
 
   create_table "course_kelases", force: :cascade do |t|
     t.integer  "course_id"
@@ -44,6 +44,17 @@ ActiveRecord::Schema.define(version: 20160215055420) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  create_table "projects", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "user_id"
+    t.integer  "course_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "projects", ["course_id"], name: "index_projects_on_course_id"
+  add_index "projects", ["user_id"], name: "index_projects_on_user_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false

@@ -7,4 +7,5 @@ class User < ActiveRecord::Base
 
   has_many :course_teacher
   has_many :courses, through: :course_teachers
+  has_many :projects
 end

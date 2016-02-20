@@ -1,6 +1,10 @@
 class CoursesController < ApplicationController
   before_action :set_course, only: [:show, :edit, :update, :destroy]
 
+  def create_assignment
+    @course.projects.build
+  end
+
   # GET /courses
   # GET /courses.json
   def index
@@ -10,6 +14,9 @@ class CoursesController < ApplicationController
   # GET /courses/1
   # GET /courses/1.json
   def show
+    @teachers = @course.teachers
+    @kelases = @course.kelases
+    @projects = @course.projects
   end
 
   # GET /courses/new
