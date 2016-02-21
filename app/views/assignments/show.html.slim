@@ -1,0 +1,54 @@
+p#notice
+  = notice
+p
+  strong
+    | Name:
+  = @assignment.name
+p
+  strong
+    | Course kelas:
+  = @assignment.course_kelas.course.name
+- if @assignment.projects.any?
+  table.table
+    thead
+      tr
+        th
+          | Student
+        th 
+          | Projects
+        th 
+          | Projects Status
+        th 
+          | Test Status
+        th 
+          | Total File
+        th 
+          | Total Commit
+        th 
+          | Total Branch
+        th 
+          | Similarity Score
+        th[colspan="3"]
+    tbody
+      - @assignment.projects.each do |project|
+        tr
+          td
+            = project.user.email
+          td 
+            = link_to project.name, project
+          td 
+            | unfinished
+          td 
+            | Success
+          td 
+            | 100
+          td
+            | 10
+          td 
+            | 3
+          td 
+            | 5%
+
+= link_to 'Edit', edit_course_kelas_assignment_path(@course_kelas, @assignment)
+|  |
+= link_to 'Back', course_kelas_path(@course_kelas)

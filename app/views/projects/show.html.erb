@@ -11,7 +11,7 @@
 </p>
 <p>
   <strong>Course:</strong>
-  <%= @project.course_name %>
+    <%= @project.assignment.course_kelas.course.name %>
 </p>
 <%= link_to 'Edit', edit_project_path(@project) %> |
 <%= link_to 'Back', projects_path %>

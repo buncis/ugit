@@ -8,6 +8,25 @@ p
   strong
     | Teacher:
   = @course_kelas.teacher.email
+p 
+  strong
+    | Class:
+  = @course_kelas.kelas.name
+= link_to 'create assignment', new_course_kelas_assignment_path(@course_kelas)
+p
+  strong
+  - if @course_kelas.assignments.any?
+    table.table
+      thead
+        tr
+          th
+            | Assignments
+          th[colspan="3"]
+      tbody
+        - @course_kelas.assignments.each do |assignment|
+          tr
+            td
+              = link_to assignment.name, course_kelas_assignment_path(@course_kelas,assignment)
 p
   strong
   - if @course_kelas.kelas.students.any?

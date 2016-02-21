@@ -6,6 +6,8 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+Course.create!(name: 'AK-045213')
+
 Kelas.create!(name: 'SMTI-07')
 
 User.create!(email: 'buncismamen@gmail.com', admin: true,
@@ -24,10 +26,12 @@ User.create!(email: 'student2@ugit.com', password: 'buncis1020',
   password_confirmation: 'buncis1020', kelas_id: 1)
 
 User.create!(email: 'student3@ugit.com', password: 'buncis1020',
-  password_confirmation: 'buncis1020')
+  password_confirmation: 'buncis1020', kelas_id: 1)
 
 User.create!(email: 'student4@ugit.com', password: 'buncis1020',
   password_confirmation: 'buncis1020', kelas_id: 1)
 
 User.create!(email: 'student5@ugit.com', password: 'buncis1020',
   password_confirmation: 'buncis1020', kelas_id: 1)
+
+CourseKelas.create!(course_id: 1, kelas_id: 1, teacher_id: 3)
