@@ -17,9 +17,11 @@ nav.navbar.navbar-default
         li 
           = link_to 'projects', projects_path
         li 
-          = link_to 'students' , '#'
+          = link_to 'students', '#'
         li 
-          = link_to 'teachers' , '#'
+          = link_to 'teachers', '#'
+        li 
+          = link_to 'my class', course_kelases_path
       ul.nav.navbar-nav.navbar-right
         -if user_signed_in?
           li

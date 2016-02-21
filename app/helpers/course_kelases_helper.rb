@@ -1,0 +1,2 @@
+module CourseKelasesHelper
+end

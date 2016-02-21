@@ -1,0 +1,38 @@
+p#notice
+  = notice
+p
+  strong
+    | Name:
+  = @course_kelas.course.name
+p
+  strong
+    | Teacher:
+  = @course_kelas.teacher.email
+p
+  strong
+  - if @course_kelas.kelas.students.any?
+    table.table
+      thead
+        tr
+          th
+            | Students
+          th[colspan="3"]
+      tbody
+        - @course_kelas.kelas.students.each do |student|
+          tr
+            td
+              = student.email
+p 
+  strong
+  - if @course_kelas.projects.any?
+    table.table
+      thead
+        tr
+          th
+            | Projects
+          th[colspan="3"]
+      tbody
+        - @course_kelas.projects.each do |project|
+          tr
+            td
+              = link_to project.name, project 

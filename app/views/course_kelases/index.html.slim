@@ -1,0 +1,29 @@
+p#notice
+  = notice
+h1
+  | My Classes
+table.table
+  thead
+    tr
+      th
+        | Name
+      th 
+        | Teacher
+      th 
+        | Kelas
+      th[colspan="3"]
+  tbody
+    - @course_kelases.each do |course_kelas|
+      tr
+        td
+          = link_to course_kelas.course.name, course_kelas.course
+        td 
+          = course_kelas.teacher.email
+        td 
+          = link_to course_kelas.kelas.name, course_kelas.kelas
+        td
+          = link_to 'Go To Class', course_kelas
+        / td
+        /   = link_to 'Edit', edit_course_path(course)
+        / td
+        /   = link_to 'Destroy', course, method: :delete, data: { confirm: 'Are you sure?' }
