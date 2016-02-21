@@ -3,4 +3,8 @@ class CourseKelas < ActiveRecord::Base
   belongs_to :kelas
   belongs_to :teacher, class_name: "User"
   has_many :projects
+
+  def create_assignment
+  end
+  
 end
